@@ -1,0 +1,29 @@
+{
+  "Nav": {
+    "ecosystem": "Écosystème",
+    "architecture": "Architecture",
+    "projects": "Projets",
+    "labs": "Labos",
+    "journal": "Journal",
+    "services": "Services",
+    "getInTouch": "Entrer en contact"
+  },
+  "Hero": {
+    "badge": "Architecte Digital & Entrepreneur",
+    "titlePrefix": "Bâtir l'avenir",
+    "titleHighlight": "Numérique",
+    "titleSuffix": "de Demain",
+    "description": "Conception de systèmes scalables, d'architectures cloud distribuées et d'écosystèmes d'IA intelligents pour propulser la prochaine génération de plateformes.",
+    "ctaGetStarted": "Explorer l'Écosystème",
+    "ctaViewArchitecture": "Voir l'Architecture"
+  },
+  "AILabs": {
+    "badge": "Recherche & Développement",
+    "titlePrefix": "Labos IA & ",
+    "titleHighlight": "Expérimentations",
+    "description": "Repousser les limites du possible avec l'intelligence artificielle, l'automatisation et les systèmes autonomes intelligents.",
+    "dashboardTitle": "Tableau de Bord de Recherche IA",
+    "dashboardSubtitle": "Surveillance des expérimentations en temps réel",
+    "activeCount": "6 Actifs"
+  }
+}

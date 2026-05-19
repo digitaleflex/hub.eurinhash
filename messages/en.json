@@ -1,0 +1,29 @@
+{
+  "Nav": {
+    "ecosystem": "Ecosystem",
+    "architecture": "Architecture",
+    "projects": "Projects",
+    "labs": "Labs",
+    "journal": "Journal",
+    "services": "Services",
+    "getInTouch": "Get in Touch"
+  },
+  "Hero": {
+    "badge": "Digital Architect & Entrepreneur",
+    "titlePrefix": "Architecting the",
+    "titleHighlight": "Digital Future",
+    "titleSuffix": "of Tomorrow",
+    "description": "Designing scalable systems, digital ecosystems, cloud architectures, and intelligent AI platforms to power the next generation of digital platforms.",
+    "ctaGetStarted": "Explore Ecosystem",
+    "ctaViewArchitecture": "View Architecture"
+  },
+  "AILabs": {
+    "badge": "Research & Development",
+    "titlePrefix": "AI Labs & ",
+    "titleHighlight": "Experiments",
+    "description": "Pushing the boundaries of what's possible with artificial intelligence, automation, and intelligent systems.",
+    "dashboardTitle": "AI Research Dashboard",
+    "dashboardSubtitle": "Real-time experiment monitoring",
+    "activeCount": "6 Active"
+  }
+}

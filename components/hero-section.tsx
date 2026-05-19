@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { GridBackground } from './grid-background'
 import { AnimatedCounter } from './animated-counter'
 import { Button } from '@/components/ui/button'
@@ -40,6 +41,8 @@ const trustIndicators = [
 ]
 
 export function HeroSection() {
+  const t = useTranslations('Hero')
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <GridBackground />
@@ -64,11 +67,11 @@ export function HeroSection() {
           {/* Main headline */}
           <motion.div variants={itemVariants} className="space-y-6 max-w-5xl">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]">
-              <span className="text-foreground">Architecting the</span>
+              <span className="text-foreground">{t('titlePrefix')}</span>
               <br />
-              <span className="gradient-text">Digital Infrastructure</span>
+              <span className="gradient-text">{t('titleHighlight')}</span>
               <br />
-              <span className="text-foreground">of Tomorrow</span>
+              <span className="text-foreground">{t('titleSuffix')}</span>
             </h1>
           </motion.div>
           
@@ -77,18 +80,18 @@ export function HeroSection() {
             variants={itemVariants}
             className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed text-balance"
           >
-            Designing scalable systems, digital ecosystems, cloud architectures and intelligent platforms for the future of Africa.
+            {t('description')}
           </motion.p>
           
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 mt-4">
             <Button size="lg" className="group gap-2 px-8 h-12 text-base glow-sm">
-              Explore Ecosystem
+              {t('ctaGetStarted')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="outline" size="lg" className="group gap-2 px-8 h-12 text-base">
               <Play className="w-4 h-4" />
-              Watch Vision
+              {t('ctaViewArchitecture')}
             </Button>
           </motion.div>
           

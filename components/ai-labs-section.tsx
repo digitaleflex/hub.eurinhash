@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { 
   Bot, 
@@ -96,6 +97,7 @@ const statusColors: Record<string, string> = {
 }
 
 export function AILabsSection() {
+  const t = useTranslations('AILabs')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -145,15 +147,14 @@ export function AILabsSection() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
             <FlaskConical className="w-4 h-4 text-primary" />
-            <span className="text-sm text-primary font-mono">Research & Development</span>
+            <span className="text-sm text-primary font-mono">{t('badge')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 text-balance">
-            AI Labs &
-            <span className="gradient-text"> Experiments</span>
+            {t('titlePrefix')}
+            <span className="gradient-text">{t('titleHighlight')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
-            Pushing the boundaries of what&apos;s possible with artificial intelligence, 
-            automation, and intelligent systems.
+            {t('description')}
           </p>
         </motion.div>
         
@@ -172,14 +173,14 @@ export function AILabsSection() {
                   <Cpu className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">AI Research Dashboard</h3>
-                  <p className="text-xs text-muted-foreground">Real-time experiment monitoring</p>
+                  <h3 className="font-semibold">{t('dashboardTitle')}</h3>
+                  <p className="text-xs text-muted-foreground">{t('dashboardSubtitle')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs text-green-400 font-mono">6 Active</span>
+                  <span className="text-xs text-green-400 font-mono">{t('activeCount')}</span>
                 </div>
               </div>
             </div>

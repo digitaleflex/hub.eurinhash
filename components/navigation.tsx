@@ -1,6 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Command } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -15,9 +17,19 @@ const navLinks = [
 ]
 
 export function Navigation() {
+  const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations('Nav')
+
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+
+  const toggleLanguage = () => {
+    const nextLocale = locale === 'en' ? 'fr' : 'en'
+    document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`
+    router.refresh()
+  }
   
   useEffect(() => {
     const handleScroll = () => {
@@ -101,18 +113,27 @@ export function Navigation() {
                       : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
                   }`}
                 >
-                  {link.label}
+                  {t(link.href.slice(1))}
                 </button>
               ))}
             </div>
             
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="font-mono text-xs hover:text-primary gap-1 flex items-center justify-center border border-border/40 px-3 py-1.5 rounded-lg"
+                onClick={toggleLanguage}
+              >
+                <span>🌐</span>
+                <span className="uppercase font-semibold">{locale}</span>
+              </Button>
               <Button variant="ghost" size="sm" className="gap-2 text-muted-foreground">
                 <Command className="w-4 h-4" />
                 <span className="text-xs">Ctrl+K</span>
               </Button>
-              <Button size="sm">Get in Touch</Button>
+              <Button size="sm">{t('getInTouch')}</Button>
             </div>
             
             {/* Mobile menu button */}
@@ -179,13 +200,21 @@ export function Navigation() {
                         : 'text-foreground hover:bg-muted/50'
                     }`}
                   >
-                    {link.label}
+                    {t(link.href.slice(1))}
                   </motion.button>
                 ))}
               </div>
               
-              <div className="mt-4 pt-4 border-t border-border">
-                <Button className="w-full">Get in Touch</Button>
+              <div className="mt-4 pt-4 border-t border-border flex flex-col gap-3">
+                <Button 
+                  variant="outline" 
+                  className="w-full font-mono text-xs flex items-center justify-center gap-2 border border-border bg-muted/20"
+                  onClick={toggleLanguage}
+                >
+                  <span>🌐</span>
+                  <span>{locale === 'en' ? 'Language: English (Switch)' : 'Langue : Français (Changer)'}</span>
+                </Button>
+                <Button className="w-full">{t('getInTouch')}</Button>
               </div>
             </motion.div>
           </motion.div>
