@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { 
   Bot, 
@@ -95,6 +96,12 @@ const statusColors: Record<string, string> = {
 }
 
 export function AILabsSection() {
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <section id="labs" className="relative py-24 md:py-32 bg-muted/20 overflow-hidden">
       {/* Background decorations */}
@@ -105,7 +112,7 @@ export function AILabsSection() {
       
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
+        {mounted && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-primary/30 rounded-full"

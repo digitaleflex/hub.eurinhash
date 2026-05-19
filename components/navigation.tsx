@@ -39,6 +39,18 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isMobileMenuOpen])
   
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -106,13 +118,26 @@ export function Navigation() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-muted/50 transition-colors"
+              className="lg:hidden relative w-10 h-10 rounded-lg hover:bg-muted/50 transition-colors flex items-center justify-center z-50 text-foreground"
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              <div className="w-5 h-4 flex flex-col justify-between relative">
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-5 h-[2px] bg-current rounded-full absolute top-0 left-0"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { opacity: 0, scale: 0.8 } : { opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-5 h-[2px] bg-current rounded-full absolute top-[7px] left-0"
+                />
+                <motion.span
+                  animate={isMobileMenuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-5 h-[2px] bg-current rounded-full absolute bottom-0 left-0"
+                />
+              </div>
             </button>
           </nav>
         </div>
@@ -138,7 +163,7 @@ export function Navigation() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="absolute top-16 left-4 right-4 p-4 rounded-2xl glass border border-border"
+              className="absolute top-20 left-4 right-4 p-5 rounded-2xl glass border border-border bg-card/95 shadow-2xl"
             >
               <div className="space-y-1">
                 {navLinks.map((link, index) => (
@@ -148,7 +173,7 @@ export function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
                     onClick={() => scrollToSection(link.href)}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                    className={`w-full text-left px-4 py-3 rounded-lg transition-colors font-medium ${
                       activeSection === link.href.slice(1)
                         ? 'text-primary bg-primary/10'
                         : 'text-foreground hover:bg-muted/50'
