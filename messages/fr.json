@@ -1,9 +1,9 @@
 {
   "Nav": {
-    "ecosystem": "Écosystème",
+    "ecosystem": "Ecosystem",
     "architecture": "Architecture",
-    "projects": "Projets",
-    "labs": "Labos",
+    "projects": "Projects",
+    "labs": "Labs",
     "journal": "Journal",
     "services": "Services",
     "getInTouch": "Entrer en contact"
@@ -19,8 +19,8 @@
   },
   "AILabs": {
     "badge": "Recherche & Développement",
-    "titlePrefix": "Labos IA & ",
-    "titleHighlight": "Expérimentations",
+    "titlePrefix": "AI Labs & ",
+    "titleHighlight": "Experiments",
     "description": "Repousser les limites du possible avec l'intelligence artificielle, l'automatisation et les systèmes autonomes intelligents.",
     "dashboardTitle": "Tableau de Bord de Recherche IA",
     "dashboardSubtitle": "Surveillance des expérimentations en temps réel",
