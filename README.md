@@ -4,6 +4,7 @@
 [![React 19](https://img.shields.io/badge/React-19.0.0-blue?style=for-the-badge&logo=react)](https://react.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.2.0-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7.3-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![next-intl](https://img.shields.io/badge/i18n-next--intl-green?style=for-the-badge&logo=international-organization-for-standardization)](https://next-intl.dev/)
 [![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](#)
 
 > **Architecting the digital infrastructure of tomorrow.**
@@ -18,6 +19,7 @@ Ce portail incarne l'excellence technique et le design d'avant-garde. Conçu ave
 - **Haute Performance** : Optimisation poussée pour des temps de chargement ultra-rapides.
 - **Sécurité Intégrée (Secure by Design)** : Alignement avec les standards d'ingénierie de sécurité de l'EHAF.
 - **Expérience Immersive** : Esthétique soignée avec effet de grille futuriste, gradients dynamiques et micro-animations fluides.
+- **Entièrement Multilingue** : Support natif du français et de l'anglais via Next-intl avec résolution serveur et changement par cookie.
 
 ---
 
@@ -42,6 +44,7 @@ L'application repose sur une stack à la pointe de l'industrie :
 
 *   **Framework principal** : [Next.js 16 (App Router)](https://nextjs.org/) pour le rendu hybride (Server/Client components) et une vitesse d'exécution optimale.
 *   **Moteur d'interface** : [React 19](https://react.dev/) tirant parti des dernières avancées en matière de gestion des états et de rendu concurrent.
+*   **Traduction & Internationalisation** : [Next-intl](https://next-intl.dev/) pour le rendu et la résolution multilingue côté serveur et côté client via cookies.
 *   **Design & Styling** : [Tailwind CSS v4](https://tailwindcss.com/) avec une architecture de variables CSS natives pour une flexibilité totale, couplé à des animations performantes via [Framer Motion](https://www.framer.com/motion/).
 *   **Composants UI** : Primitives accessibles basées sur [Radix UI](https://www.radix-ui.com/) et personnalisées sous forme de tokens réutilisables.
 *   **Type Safety** : Intégration stricte de [TypeScript](https://www.typescriptlang.org/) et validation de données avec [Zod](https://zod.dev/).
@@ -59,13 +62,18 @@ hub.eurinhash.com/
 │   └── page.tsx          # Point d'entrée principal assemblant les sections
 ├── components/           # Composants métiers du Hub
 │   ├── ui/               # Primitives d'interface réutilisables (Boutons, Cartes, etc.)
-│   ├── navigation.tsx    # Barre de navigation interactive
+│   ├── navigation.tsx    # Barre de navigation interactive avec sélecteur multilingue
 │   ├── hero-section.tsx  # Section d'accueil à fort impact visuel
 │   ├── ecosystem-section.tsx
 │   ├── architecture-section.tsx
 │   ├── projects-section.tsx
 │   ├── ai-labs-section.tsx
 │   └── ...
+├── i18n/                 # Configuration d'i18n pour Next-intl
+│   └── request.ts
+├── messages/             # Dictionnaires JSON pour les traductions (EN/FR)
+│   ├── en.json
+│   └── fr.json
 ├── hooks/                # Hooks React personnalisés (gestion du mobile, etc.)
 ├── lib/                  # Utilitaires globaux (fusion de classes Tailwind, etc.)
 ├── public/               # Actifs statiques (logos, icônes SVG, placeholders)
